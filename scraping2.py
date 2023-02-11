@@ -44,6 +44,7 @@ for url in urls:
 
 # Write the results to an Excel file
 df = pd.DataFrame(results, columns=["URL", "Keyword", "Title", "Meta Description", "Published Date"])
+df = df.drop_duplicates(subset="Meta Description")
 df.to_excel(f"E:\\aaravi\\pranab\\results\\results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx", index=False)
 
 # Set the scanning and monitoring duration to 5 minutes daily
